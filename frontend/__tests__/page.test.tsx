@@ -7,7 +7,7 @@ global.fetch as jest.Mock) = jest.fn(() =>
   Promise.resolve({
     json: () => Promise.resolve({ message: 'Mock message' }),
   })
-)) as jest.Mock;
+);
 
 describe('Home Page', () => {
   test('renders static title', async () => {
