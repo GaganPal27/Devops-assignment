@@ -1,0 +1,22 @@
+{
+  "family": "frontend-task",
+  "networkMode": "awsvpc",
+  "executionRoleArn": "arn:aws:iam::734563841549:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "frontend",
+      "image": "734563841549.dkr.ecr.us-east-1.amazonaws.com/frontend:latest",
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true
+    }
+  ],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512"
+}
+
