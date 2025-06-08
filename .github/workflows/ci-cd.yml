@@ -107,7 +107,7 @@ jobs:
     needs: build-test-push
     if: github.ref == 'refs/heads/main'
 
-    steps:
+      steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
