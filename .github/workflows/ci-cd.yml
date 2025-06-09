@@ -91,6 +91,9 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
+      - name: Update frontend image tag in task definition
+        run: |
+          sed -i "s|734563841549.dkr.ecr.us-east-1.amazonaws.com/frontend:latest|734563841549.dkr.ecr.us-east-1.amazonaws.com/frontend:${{ github.sha }}|g" ecs-task-definition-frontend.json
 
       - name: Deploy frontend to ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
@@ -116,6 +119,9 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
+      - name: Update backend image tag in task definition
+        run: |
+          sed -i "s|734563841549.dkr.ecr.us-east-1.amazonaws.com/backend:latest|734563841549.dkr.ecr.us-east-1.amazonaws.com/backend:${{ github.sha }}|g" ecs-task-definition-backend.json
 
       - name: Deploy backend to ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
