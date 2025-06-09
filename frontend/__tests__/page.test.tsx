@@ -3,11 +3,11 @@ import { render, screen, waitFor } from '@testing-library/react'
 import Home from '../app/page'
 
 // Mock fetch globally
-(global.fetch as jest.Mock) = jest.fn(() =>
+global.fetch = jest.fn(() =>
   Promise.resolve({
     json: () => Promise.resolve({ message: 'Mock message' }),
   })
-);
+)
 
 describe('Home Page', () => {
   test('renders static title', async () => {
