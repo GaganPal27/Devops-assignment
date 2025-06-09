@@ -1,5 +1,6 @@
-/** @type {import('jest').Config} */
-const config = {
+/** @type {import('ts-jest').JestConfigWithTsJest} */
+module.exports = {
+  preset: 'ts-jest/presets/js-with-ts',
   testEnvironment: 'jsdom',
   transform: {
     '^.+\\.(ts|tsx)$': 'babel-jest',
@@ -9,6 +10,4 @@ const config = {
   setupFiles: ['whatwg-fetch'],
   setupFilesAfterEnv: ['@testing-library/jest-dom'],
 }
-
-module.exports = config
 
