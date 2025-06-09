@@ -3,7 +3,7 @@ import { render, screen, waitFor } from '@testing-library/react'
 import Home from '../app/page'
 
 // Mock fetch globally
-global.fetch = jest.fn(() =>
+(global.fetch as jest.Mock) = jest.fn(() =>
   Promise.resolve({
     json: () => Promise.resolve({ message: 'Mock message' }),
   })
